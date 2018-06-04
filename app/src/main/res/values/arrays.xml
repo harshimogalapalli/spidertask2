@@ -7,20 +7,20 @@
 	    <item>SYSTEM</item>
 	    <item>APPLICATION</item>
 	    <item>INTERNET</item>
-	    <item>STYLUS</item>
+	    <item>WEBDEVELOPMENT</item>
 	    <item>ANDROID</item>
 	    <item>KEYBOARD</item>
 	    <item>SMARTPHONE</item>
-	    <item>KILLERWHALE</item>
+	    <item>SCREEN</item>
 	    <item>SPREADSHEET</item>
-	    <item>TORNADO</item>
+	    <item>LAPTOP</item>
 	    <item>TELEVISION</item>
 	    <item>BINARY</item>
 	    <item>PROGRAMMER</item>
 	    <item>AWESOME</item>
 	    <item>TERMINAL</item>
 	    <item>MOUSE</item>
-	    <item>PAIVI</item>
+	    <item>ITEM</item>
 	    <item>CARNIVORE</item>
 	    <item>COMMANDO</item>
 	    <item>TROUSERS</item>
@@ -35,11 +35,11 @@
 	    <item>ORIENTED</item>
 	    <item>PROPERTY</item>
 	    <item>TAG</item>
-	    <item>GAMING</item>
+	    <item>REPRESENTATION</item>
 	    <item>SLEEPING</item>
-	    <item>MEDICATION</item>
+	    <item>ESTIMATION</item>
 	    <item>ACHIEVEMENT</item>
-	    <item>INTERNAL</item>
+	    <item>INDUCTION</item>
 	    <item>GLOBAL</item>
   </string-array>
     
