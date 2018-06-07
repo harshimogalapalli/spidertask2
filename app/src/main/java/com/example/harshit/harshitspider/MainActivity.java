@@ -1,5 +1,7 @@
 package com.example.harshit.harshitspider;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;import java.util.Random;
 
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,22 +28,37 @@ public class MainActivity extends AppCompatActivity {
     private TextView[] charViews;
     private GridView letters;
     private LetterAdapter ltrAdapt;
-
+    TextView best;
     private ImageView[] bodyParts;
 
     private int numParts=6;
 
-    private int currPart;
+    private int currPart,bestc;
 
     private int numChars;
 
     private int numCorr;
+    private int bestScore;
+    SharedPreferences prefs;
+
+    SharedPreferences.Editor edt;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        best=(TextView)findViewById(R.id.textView);
+        prefs=getSharedPreferences("com.example.harshit.harshitspider", Context.MODE_PRIVATE);
 
+        edt=prefs.edit();
+
+        bestScore=prefs.getInt("best",7);
+
+        best.setText("Best: "+bestScore+" wrong(s)");
         Resources res = getResources();
 
         words = res.getStringArray(R.array.words);
@@ -57,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
         bodyParts[3] = (ImageView)findViewById(R.id.arm2);
         bodyParts[4] = (ImageView)findViewById(R.id.leg1);
         bodyParts[5] = (ImageView)findViewById(R.id.leg2);
+        bestScore=prefs.getInt("best",7);
 
+        best.setText("Best: "+bestScore+" wrong(s)");
         playGame();
     }private void playGame() {
 
@@ -116,8 +136,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (correct) {
 
-            if (numCorr == numChars) {
 
+            if (numCorr == numChars) {
+                if(currPart<bestScore) {
+bestScore=currPart;
+                    best.setText("Best: "+bestScore+" wrong(s)");
+                }
                 disableBtns();
 
 
@@ -167,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void disableBtns() {
+    public void disableBtns() {Toast.makeText(getApplicationContext(),"CURRENT SCORE OF THE GAME IS "+(7-currPart),Toast.LENGTH_LONG).show();
         int numLetters = letters.getChildCount();
         for (int l = 0; l < numLetters; l++) {
             letters.getChildAt(l).setEnabled(false);
